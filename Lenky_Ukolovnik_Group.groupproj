@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{931C6EE1-0691-407B-8FA5-4AF6B47C099D}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Application_VCL\Lenky_ukolovnik.dproj">
+            <Dependencies>Shared\Shared.dproj</Dependencies>
+        </Projects>
+        <Projects Include="Shared\Shared.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Lenky_ukolovnik" DependsOnTargets="Shared">
+        <MSBuild Projects="Application_VCL\Lenky_ukolovnik.dproj"/>
+    </Target>
+    <Target Name="Lenky_ukolovnik:Clean" DependsOnTargets="Shared:Clean">
+        <MSBuild Projects="Application_VCL\Lenky_ukolovnik.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lenky_ukolovnik:Make" DependsOnTargets="Shared:Make">
+        <MSBuild Projects="Application_VCL\Lenky_ukolovnik.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Shared">
+        <MSBuild Projects="Shared\Shared.dproj"/>
+    </Target>
+    <Target Name="Shared:Clean">
+        <MSBuild Projects="Shared\Shared.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Shared:Make">
+        <MSBuild Projects="Shared\Shared.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Lenky_ukolovnik;Shared"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Lenky_ukolovnik:Clean;Shared:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Lenky_ukolovnik:Make;Shared:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
