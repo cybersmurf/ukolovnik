@@ -1,0 +1,52 @@
+package Shared;
+
+{$R *.res}
+{$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
+{$ALIGN 8}
+{$ASSERTIONS ON}
+{$BOOLEVAL OFF}
+{$DEBUGINFO OFF}
+{$EXTENDEDSYNTAX ON}
+{$IMPORTEDDATA ON}
+{$IOCHECKS ON}
+{$LOCALSYMBOLS ON}
+{$LONGSTRINGS ON}
+{$OPENSTRINGS ON}
+{$OPTIMIZATION OFF}
+{$OVERFLOWCHECKS ON}
+{$RANGECHECKS ON}
+{$REFERENCEINFO ON}
+{$SAFEDIVIDE OFF}
+{$STACKFRAMES ON}
+{$TYPEDADDRESS OFF}
+{$VARSTRINGCHECKS ON}
+{$WRITEABLECONST OFF}
+{$MINENUMSIZE 1}
+{$IMAGEBASE $400000}
+{$DEFINE DEBUG}
+{$DEFINE UDB_FD}
+{$DEFINE UDBFD}
+{$ENDIF IMPLICITBUILDING}
+{$IMPLICITBUILD ON}
+
+requires
+  rtl,
+  vcl,
+  dbrtl,
+  FireDAC,
+  FireDACCommonDriver,
+  FireDACCommon,
+  FireDACMySQLDriver,
+  vclimg,
+  vclwinx,
+  vclx,
+  vcldb,
+  RosiDBComp_DX110,
+  RosiUDB_FD_DX110;
+
+contains
+  uDmDatabase in 'uDmDatabase.pas' {dmDatabase: TDataModule},
+  fTemplateMdiChild in 'fTemplateMdiChild.pas' {frmTemplateMdiChild},
+  fTemplateCiselnik in 'fTemplateCiselnik.pas' {frmTemplateCiselnik};
+
+end.
