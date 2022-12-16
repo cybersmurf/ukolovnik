@@ -8,7 +8,8 @@ uses
   fClients in 'fClients.pas' {frmClients},
   fTasksType in 'fTasksType.pas' {frmTasksType},
   uConfig in 'uConfig.pas',
-  uDm in 'uDm.pas' {dm: TDataModule};
+  uDm in 'uDm.pas' {dm: TDataModule},
+  fTasks in 'fTasks.pas' {frmTasks};
 
 {$R *.res}
 

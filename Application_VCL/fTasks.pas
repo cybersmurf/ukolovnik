@@ -1,4 +1,4 @@
-unit fTasksType;
+unit fTasks;
 
 interface
 
@@ -8,11 +8,17 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  rDBComponents_UDB, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, rDBGrid;
+  rDBComponents_UDB, Vcl.ExtCtrls, Vcl.DBCtrls, Vcl.Grids, Vcl.DBGrids, rDBGrid,
+  Vcl.StdCtrls, System.Actions, Vcl.ActnList;
 
 type
-  TfrmTasksType = class(TfrmTemplateCiselnik)
-    procedure FormShow(Sender: TObject);
+  TfrmTasks = class(TfrmTemplateCiselnik)
+    QueryUDB2: TQueryUDB;
+    QueryUDB3: TQueryUDB;
+    Panel1: TPanel;
+    Button1: TButton;
+    ActionList1: TActionList;
+    actGenerateTasks: TAction;
   private
     { Private declarations }
   public
@@ -20,16 +26,11 @@ type
   end;
 
 var
-  frmTasksType: TfrmTasksType;
+  frmTasks: TfrmTasks;
 
 implementation
 
-{$R *.dfm}
 
-procedure TfrmTasksType.FormShow(Sender: TObject);
-begin
-  inherited;
-  QueryUDB1.Open;
-end;
+{$R *.dfm}
 
 end.
